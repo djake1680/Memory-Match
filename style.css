@@ -1,0 +1,66 @@
+.gameContainer {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.gameheader {
+	width: 1200px;
+	height: 80px;
+	border: 1px solid;
+}
+
+
+.logo {
+	width: 200px;
+	height: 80px;
+	display: inline-block;
+}
+
+.gametitle {
+	width: 790px;
+	height: 80px;
+	display: inline-block;
+}
+
+.resetgame {
+	width: 200px;
+	height: 80px;
+	display: inline-block;
+}
+
+.gamearea {
+	width: 1204px;
+	height: 700px;
+}
+.navbar {
+	width: 200px;
+	height: 700px;
+	border: 1px solid black;
+	float: left;
+}
+
+.gameboard {
+	width: 1000px;
+	height: 700px;
+	border: 1px solid blue;
+	float: left;
+}
+
+.card {
+	height: 190px;
+	width: 140px;
+	border: 1px solid;
+	display: inline-block;
+	float: left;
+	margin: 10px;
+}
+
+.cardboard {
+	width: 100%;
+	padding-left: 15px;
+	padding-top: 30px;
+}
+
+.card {
+	background-image: url(images/ssposter.jpg);
+}
