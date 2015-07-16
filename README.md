@@ -9,6 +9,10 @@ Memory Match game, similar to Concentration
     - header
     - info section
     - game area
+  - File names:
+    - index.html - the main file
+    - main.js - the main javascript file, referenced from index.html
+    - style.css - the main css file, referenced from index.html
 - Version .05.1
   - One card with
     - card container
@@ -29,3 +33,6 @@ Memory Match game, similar to Concentration
   - You do NOT have to do yet:
     - be able to correctly click all 3 cards
     - make the cards flip back after mismatch
+
+## All version .05 files should be saved in prototype.html.  
+- style and js should be in the same file.
