@@ -8,7 +8,18 @@ var score = 0;
 function hide_card(card_back, card_front) { 
 	//changes id that was passed to the function into a variable
 	//$(card_back).css("display", "none"); 
-	  $(card_back).hide();
+	 // $(card_back).hide();
+
+	 	$(card_back).css({
+	 		"transform" : "rotateY(90deg)",
+	 		"transition" : "transform .20s"
+
+	 	});
+
+	 	$(card_front).css({
+	 		"transform" : "rotateY(180deg)",
+	 		"transition" : "transform .35s"
+	 	});
 		//uses variable from function to add css into its' id's code
 		//console log below determines what card was clicked by looking at the variable that passed through the function
 		//console.log(card_back + " was clicked");
@@ -45,8 +56,27 @@ function hide_card(card_back, card_front) {
 				console.log("Please try again!");
 				//$(card_back).css("display", "inline-block");
 				//$(card_back_show).css("display", "inline-block");
-				$(card_back).show(500);
-				$(card_back_show).show(500);
+				//$(card_back).show(500);
+				$(card_back_show).css({
+					"transform" : "rotateY(180deg)",
+					"transition" : "transform .2s"
+				});
+
+				$(card_front_hide).css({
+					"transform" : "rotateY(90deg)",
+					"transition" : "transform .2s"
+				});
+				//code below shows 2nd card if no match
+				$(card_front).css({
+					"transform" : "rotateY(90deg)",
+					"transition" : "transform .35s"
+				});
+
+				$(card_back).css ({
+					"transform" : "rotateY(180deg)",
+					"transition" : "transform .2s"
+				});
+				//$(card_back_show).show(500);
 				second_clicked = false;
 			}
 
@@ -63,6 +93,3 @@ function hide_card(card_back, card_front) {
 function reset_game() {
 	alert("Reset Game");
 }
-
-
-//var front_image_src = $(card_front).attr('src'); //find attribute of img of src
