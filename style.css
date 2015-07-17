@@ -54,22 +54,46 @@ body {
 .navbar {
 	width: 820px;
 	height: 120px;
+	/*border: 1px solid pink;*/
 }
 
 .reset {
 	width: 200px;
-	margin: 0 auto;
-	margin-top: 20px;
+	float: left;
+	height: 120px;
+	/*border: 1px solid green;*/
 }
 
-.reset button {
+.startGame {
+	width: 200px;
+	float: left;
+	height: 120px;
+	/*border: 1px solid blue;*/
+}
+
+.reset button, .startGame button {
 	width: 200px;
 	height: 80px;
+	margin-top: 50px;
 	font-family: scary;
 	font-size: 2.5em;
 	color: red;
 	background-color: transparent;
-	border: none;
+	/*border: 1px solid pink;*/
+}
+
+.totalscore {
+	color: purple;
+	font-family: scary;
+	width: 180px;
+	height: 120px;
+	float: left;
+	/*border: 1px solid purple;*/
+}
+
+.totalscore h1 {
+	margin: 0;
+	padding: 15px 0 0 15px;
 }
 
 button:focus { 

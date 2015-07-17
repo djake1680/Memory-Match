@@ -97,8 +97,14 @@
 			<img class="card-front" id="card18front" src="images/harvey.jpg" >
 			<img class="card-back" src="images/cardback.jpg" id="card18back" onclick="hide_card('#card18back', '#card18front')">
 		</div>
-
 		<div class="navbar">
+			<div class="totalscore">
+				<h1 id="myScore">Score: </h1>
+				<h1>Timer: </h1>
+			</div>
+			<div class="startGame">
+				<button type="button" onclick="start_game()">START GAME</button>
+			</div>
 			<div class="reset">
 			<button onclick="reset_game()">RESET GAME</button>
 			</div>

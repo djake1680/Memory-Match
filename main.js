@@ -49,7 +49,7 @@ function hide_card(card_back, card_front) {
 				$(card_front_hide).hide(500);
 				second_clicked = false;
 				console.log("Your score is: " + (score += 1));
-				$('.totalscore>h1').html("Score: " + score);
+				$('.totalscore>#myScore').html("Score: " + score);
 
 			}
 			else {
