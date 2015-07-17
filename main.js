@@ -7,7 +7,8 @@ var score = 0;
 
 function hide_card(card_back, card_front) { 
 	//changes id that was passed to the function into a variable
-	$(card_back).css("display", "none"); 
+	//$(card_back).css("display", "none"); 
+	  $(card_back).hide();
 		//uses variable from function to add css into its' id's code
 		//console log below determines what card was clicked by looking at the variable that passed through the function
 		//console.log(card_back + " was clicked");
@@ -31,16 +32,21 @@ function hide_card(card_back, card_front) {
 		else {
 			if (first_click == front_image_src) {
 				console.log("They're the same!");
-				$(card_front).css("display", "none");
-				$(card_front_hide).css("display", "none");
+				//$(card_front).css("display", "none");
+				//$(card_front_hide).css("display", "none");
+				$(card_front).hide(500);
+				$(card_front_hide).hide(500);
 				second_clicked = false;
 				console.log("Your score is: " + (score += 1));
 				$('.totalscore>h1').html("Score: " + score);
+
 			}
 			else {
 				console.log("Please try again!");
-				$(card_back).css("display", "inline-block");
-				$(card_back_show).css("display", "inline-block");
+				//$(card_back).css("display", "inline-block");
+				//$(card_back_show).css("display", "inline-block");
+				$(card_back).show(500);
+				$(card_back_show).show(500);
 				second_clicked = false;
 			}
 
@@ -52,6 +58,10 @@ function hide_card(card_back, card_front) {
 	
 
 		
+}
+
+function reset_game() {
+	alert("Reset Game");
 }
 
 
