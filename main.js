@@ -4,6 +4,7 @@ var card_front_hide;
 var card_back_show;
 var score = 0;
 
+
 function hide_card(card_back, card_front) { 
 	//changes id that was passed to the function into a variable
 	$(card_back).css("display", "none"); 
@@ -34,6 +35,7 @@ function hide_card(card_back, card_front) {
 				$(card_front_hide).css("display", "none");
 				second_clicked = false;
 				console.log("Your score is: " + (score += 1));
+				$('.totalscore>h1').html("Score: " + score);
 			}
 			else {
 				console.log("Please try again!");

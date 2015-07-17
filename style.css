@@ -1,33 +1,55 @@
+body {
+	background-image: url(images/darkknightbackground2.jpg);
+	background-size: 100%;
+}
+
+
+
 .container {
-	width: 800px;
+	width: 1020px;
+	height: 100%;
+	margin: 0 auto;
 }
 
 .header {
-	width: 800px;
+	width: 1020px;
 	height: 80px;
-	background-color: blue;
+	background-color: none;
+}
+
+.logo {
+	width: 200px;
+	height: 280px;
+	display: inline-block;
+}
+
+.gametitle {
+	width: 800px;
+	height: 280px;
+	display: inline-block;
 }
 
 .navbar {
-	width: 12.5%;
-	height: 600px;
+	width: 200px;
+	height: 550px;
 	background-color: green;
 	display: inline-block;
 	float: left;
 }
 
 .gamearea {
-	width: 87.5%;
-	height: 600px;
-	background-color: #E9E9D3;
+	width: 1020px;
+	height: 550px;
+	/*background-color: #E9E9D3;*/
 	display: inline-block;
 }
 
 .card_container {
 	position: relative;
-	position: inline-block;
-	width: 160px;
-	height: 240px;
+	display: inline-block;
+	width: 126px;
+	height: 171px;
+	margin: 4px 0 0 4px ;
 }
 
 .card-front {
@@ -38,12 +60,10 @@
 	position: absolute;
 }
 
-.cards {
-	position: relative;
-	display: inline-block;
-	float: left;
-	width: 160px;
-	height: 240px;
+.card_container img {
+	border-radius: 15px;
+	width: 126px;
+	height: 171px;
 }
 
 
