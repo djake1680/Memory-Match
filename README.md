@@ -54,5 +54,12 @@ Memory Match game, similar to Concentration
   - reset your clicked card boolean tracker.  This will prepare your game for the next card pair click
   - add a 4th card.  This should give you 2 cards of each image.
 
-### Extra for 1.0:
+#### Extra for 1.0:
 - If you feel bold apply a css rotation for the flip, look up CSS animations, specifically transform: rotateY
+
+### Version 1.5
+- 18 (minimum) functioning cards
+- Game win state - game should inform you when you have matched all cards
+- Game reset button.  Game should be resettable.  Either by resetting the game board, or linking back to the same document to start the game over (reloading the page by linking to it).
+- An accuracy counter (how many successful 2nd clicks divided by how many missed 2nd clicks)
+- Implemented logo and theme of some sort
