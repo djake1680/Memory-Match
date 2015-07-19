@@ -63,3 +63,5 @@ Memory Match game, similar to Concentration
 - Game reset button.  Game should be resettable.  Either by resetting the game board, or linking back to the same document to start the game over (reloading the page by linking to it).
 - An accuracy counter (how many successful 2nd clicks divided by how many missed 2nd clicks)
 - Implemented logo and theme of some sort
+
+#### Make a PULL-REQUEST for version 1.5 to your named branch on the LF c4_memory_match repo.
