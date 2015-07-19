@@ -3,6 +3,39 @@ var first_click = null;
 var card_front_hide;
 var card_back_show;
 var score = 0;
+var interval = null;
+var start_time;
+ //find time when game starts
+var time_difference;
+var timer_output = null;
+var score_output = null;
+var correct = null;
+var incorrect = null;
+
+$(document).ready(function(){
+	timer_output = $(".timer_input > span");
+	score_output = $("#myScore > span");
+});
+
+function start_game(){
+	if (interval === null) {
+		reset_game();
+	}
+	start_time = new Date();
+	interval = setInterval(function(){
+		var current_time = new Date();
+		var time_difference = Math.floor((current_time - start_time)/1000);
+		console.log(time_difference);
+		timer_output.html(time_difference);
+	}, 1000)
+}
+
+function reset_game(){
+	clearInterval(interval);
+	interval = null;
+	timer_output.html(0);
+}
+
 
 
 function hide_card(card_back, card_front) { 
@@ -49,7 +82,11 @@ function hide_card(card_back, card_front) {
 				$(card_front_hide).hide(500);
 				second_clicked = false;
 				console.log("Your score is: " + (score += 1));
-				$('.totalscore>#myScore').html("Score: " + score);
+				//$('.totalscore>#myScore').html("Score: " + score);
+				score_output.html(score);
+				correct = (correct += 1);
+				console.log("Correct amount: " + correct);
+
 
 			}
 			else {
@@ -64,7 +101,7 @@ function hide_card(card_back, card_front) {
 
 				$(card_front_hide).css({
 					"transform" : "rotateY(90deg)",
-					"transition" : "transform .2s"
+					"transition" : "transform .35s"
 				});
 				//code below shows 2nd card if no match
 				$(card_front).css({
@@ -78,18 +115,24 @@ function hide_card(card_back, card_front) {
 				});
 				//$(card_back_show).show(500);
 				second_clicked = false;
+
+				incorrect = (incorrect += 1);
+				console.log("Incorrect amount: " + incorrect);
 			}
+
+			
 
 
 		}
 
 		
-		
+		if(score == 9) {
+					alert("YOU WON!");
+					clearInterval(interval);
+					timer_output.html(time_difference);
+					
+				}
 	
 
 		
-}
-
-function reset_game() {
-	alert("Reset Game");
 }

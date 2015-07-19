@@ -82,13 +82,18 @@ body {
 	/*border: 1px solid pink;*/
 }
 
+.reset a {
+	color: red;
+	text-decoration: none;
+}
+
 .totalscore {
 	color: purple;
 	font-family: scary;
 	width: 180px;
 	height: 120px;
 	float: left;
-	/*border: 1px solid purple;*/
+	border: 1px solid purple;
 }
 
 .totalscore h1 {
@@ -99,6 +104,14 @@ body {
 button:focus { 
 	outline: none; 
 }
+
+.accuracy {
+	width: 230px;
+	height: 120px;
+	float: left;
+	border: 1px solid purple;
+}
+
 @font-face {
 	font-family: scary;
 	src: url(images/somethingstrange.ttf);
