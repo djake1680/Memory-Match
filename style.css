@@ -119,4 +119,10 @@ button:focus {
 	font-weight: 400;
 }
 
+/*.addClass	*/
+.flip_card {
+	transform: rotateY(180deg);
+	transition: transform .2s;
+}
+
 
