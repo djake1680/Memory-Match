@@ -8,13 +8,15 @@ var start_time;
  //find time when game starts
 var time_difference;
 var timer_output = null;
-var score_output = null;
+var score_output = null; //so doesn't have to look for $("#myScore > span") every time
+var accuracy_output = null;
 var correct = null;
 var incorrect = null;
 
 $(document).ready(function(){
-	timer_output = $(".timer_input > span");
-	score_output = $("#myScore > span");
+	timer_output = $(".timer_input > span"); //so doesn't have to look for $(".timer_input > span") every time
+	score_output = $("#myScore > span"); //so doesn't have to look for $("#myScore > span") every time
+	accuracy_output = $(".current_accuracy > span");
 });
 
 function start_game(){
@@ -39,9 +41,6 @@ function reset_game(){
 
 
 function hide_card(card_back, card_front) { 
-	//changes id that was passed to the function into a variable
-	//$(card_back).css("display", "none"); 
-	 // $(card_back).hide();
 
 	 	$(card_back).css({
 	 		"transform" : "rotateY(90deg)",
@@ -53,14 +52,10 @@ function hide_card(card_back, card_front) {
 	 		"transform" : "rotateY(180deg)",
 	 		"transition" : "transform .35s"
 	 	});
-		//uses variable from function to add css into its' id's code
-		//console log below determines what card was clicked by looking at the variable that passed through the function
-		//console.log(card_back + " was clicked");
-		//console.log(card_front + " is now visible");
-		//console.log(first_click);
 
-		var front_image_src = $(card_front).attr('src');
-		//console.log(front_image_src);
+		console.log($(card_back));
+		console.log($(card_front));
+		var front_image_src = $(card_front).attr('src'); //determines what card was clicked by looking at the variable that passed through the function
 
 		if (!second_clicked) { //if second_clicked hasn't been changed to true yet
 			
@@ -76,24 +71,15 @@ function hide_card(card_back, card_front) {
 		else {
 			if (first_click == front_image_src) {
 				console.log("They're the same!");
-				//$(card_front).css("display", "none");
-				//$(card_front_hide).css("display", "none");
 				$(card_front).hide(500);
 				$(card_front_hide).hide(500);
-				second_clicked = false;
 				console.log("Your score is: " + (score += 1));
-				//$('.totalscore>#myScore').html("Score: " + score);
 				score_output.html(score);
 				correct = (correct += 1);
-				console.log("Correct amount: " + correct);
-
 
 			}
 			else {
 				console.log("Please try again!");
-				//$(card_back).css("display", "inline-block");
-				//$(card_back_show).css("display", "inline-block");
-				//$(card_back).show(500);
 				$(card_back_show).css({
 					"transform" : "rotateY(180deg)",
 					"transition" : "transform .2s"
@@ -113,19 +99,17 @@ function hide_card(card_back, card_front) {
 					"transform" : "rotateY(180deg)",
 					"transition" : "transform .2s"
 				});
-				//$(card_back_show).show(500);
-				second_clicked = false;
 
 				incorrect = (incorrect += 1);
-				console.log("Incorrect amount: " + incorrect);
 			}
-
-			
-
+				second_clicked = false;
+			var accurate_math = (correct / (incorrect + correct)) * 100;
+			var accuracy = accurate_math.toFixed(0);
+			accuracy_output.html(accuracy + "%");
 
 		}
-
 		
+
 		if(score == 9) {
 					alert("YOU WON!");
 					clearInterval(interval);

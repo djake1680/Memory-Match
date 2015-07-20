@@ -54,32 +54,29 @@ body {
 .navbar {
 	width: 820px;
 	height: 120px;
-	/*border: 1px solid pink;*/
 }
 
 .reset {
 	width: 200px;
 	float: left;
 	height: 120px;
-	/*border: 1px solid green;*/
 }
 
 .startGame {
 	width: 200px;
 	float: left;
 	height: 120px;
-	/*border: 1px solid blue;*/
 }
 
 .reset button, .startGame button {
 	width: 200px;
 	height: 80px;
-	margin-top: 50px;
+	margin-top: 45px;
 	font-family: scary;
 	font-size: 2.5em;
 	color: red;
 	background-color: transparent;
-	/*border: 1px solid pink;*/
+	border: none;
 }
 
 .reset a {
@@ -93,7 +90,6 @@ body {
 	width: 180px;
 	height: 120px;
 	float: left;
-	border: 1px solid purple;
 }
 
 .totalscore h1 {
@@ -109,7 +105,12 @@ button:focus {
 	width: 230px;
 	height: 120px;
 	float: left;
-	border: 1px solid purple;
+	font-family: scary;
+	color: purple;
+}
+
+.accuracy h1 {
+	padding: 15px 0 0 25px;
 }
 
 @font-face {
