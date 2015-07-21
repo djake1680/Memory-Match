@@ -121,8 +121,13 @@ button:focus {
 
 /*.addClass	*/
 .flip_card {
-	transform: rotateY(180deg);
+	transform: rotateY(90deg);
 	transition: transform .2s;
+}
+
+.flip_card_back {
+	transform : rotateY(180deg);
+	transition : transform .35s;
 }
 
 

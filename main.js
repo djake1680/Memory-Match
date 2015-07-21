@@ -38,20 +38,11 @@ function reset_game(){
 	timer_output.html(0);
 }
 
-
-
 function hide_card(card_back, card_front) { 
 
-	 	$(card_back).css({
-	 		"transform" : "rotateY(90deg)",
-	 		"transition" : "transform .20s"
-
-	 	});
-
-	 	$(card_front).css({
-	 		"transform" : "rotateY(180deg)",
-	 		"transition" : "transform .35s"
-	 	});
+	 		$(card_back).addClass("flip_card");
+	 	
+			$(card_front).addClass("flip_card_back");
 
 		console.log($(card_back));
 		console.log($(card_front));
@@ -75,32 +66,24 @@ function hide_card(card_back, card_front) {
 				$(card_front_hide).hide(500);
 				console.log("Your score is: " + (score += 1));
 				score_output.html(score);
-				correct = (correct += 1);
+				correct += 1;
 
 			}
 			else {
+				setTimeout(function(){
 				console.log("Please try again!");
-				$(card_back_show).css({
-					"transform" : "rotateY(180deg)",
-					"transition" : "transform .2s"
-				});
+				$(card_back_show).removeClass("flip_card");
+			
+				$(card_front_hide).removeClass("flip_card_back");
+				
+				$(card_front).removeClass("flip_card_back");
+			
+				$(card_back).removeClass("flip_card");
+			
 
-				$(card_front_hide).css({
-					"transform" : "rotateY(90deg)",
-					"transition" : "transform .35s"
-				});
-				//code below shows 2nd card if no match
-				$(card_front).css({
-					"transform" : "rotateY(90deg)",
-					"transition" : "transform .35s"
-				});
-
-				$(card_back).css ({
-					"transform" : "rotateY(180deg)",
-					"transition" : "transform .2s"
-				});
-
-				incorrect = (incorrect += 1);
+				
+			}, 300);
+				incorrect += 1;
 			}
 				second_clicked = false;
 			var accurate_math = (correct / (incorrect + correct)) * 100;
