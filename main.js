@@ -4,8 +4,7 @@ var card_front_hide;
 var card_back_show;
 var score = 0;
 var interval = null;
-var start_time;
- //find time when game starts
+var start_time; //find time when game starts
 var time_difference;
 var timer_output = null;
 var score_output = null; //so doesn't have to look for $("#myScore > span") every time
@@ -13,14 +12,53 @@ var accuracy_output = null;
 var correct = null;
 var incorrect = null;
 
+
 $(document).ready(function(){
 	timer_output = $(".timer_input > span"); //so doesn't have to look for $(".timer_input > span") every time
 	score_output = $("#myScore > span"); //so doesn't have to look for $("#myScore > span") every time
 	accuracy_output = $(".current_accuracy > span");
+
+    var game_cards = ["images/batmandk.jpg", "images/batmandk.jpg", "images/bane.jpg", "images/bane.jpg", "images/gordon.jpg",
+        "images/gordon.jpg", "images/jokerbk.jpg", "images/jokerbk.jpg", "images/alfred.jpg", "images/alfred.jpg",
+        "images/scarecrow.jpg", "images/scarecrow.jpg", "images/twoface.jpg", "images/twoface.jpg", "images/fox.jpg",
+        "images/fox.jpg", "images/harvey.jpg", "images/harvey.jpg"];
+    console.log(game_cards.length);
+
+    var total_cards = game_cards.length;
+
+    for (var i = 0; i < total_cards; i++) {
+        var card_pick = Math.floor((Math.random() * game_cards.length));
+        console.log(game_cards[card_pick]);
+        game_cards.splice(card_pick, 1);
+        
+    }
+
+
+	var game_piece = $("<div>", {
+		class: "card_container card_container1",
+		});
+
+	var game_image = $("<img>", {
+		class: "card-front",
+		id: "card1front",
+		src: "images/batmandk.jpg"
+	});
+
+    var game_front_image = $("<img>", {
+        class: "card-back",
+        src: "images/cardback.jpg",
+        id: "card1back",
+        onclick: "hide_card('#card1back', '#card1front')",
+    });
+
+    $(".gamearea").append(game_piece);
+    $(".card_container1").append(game_image);
+    $(".card_container1").append(game_front_image);
+
 });
 
 function start_game(){
-	if (interval === null) {
+	if (interval != null) {
 		reset_game();
 	}
 	start_time = new Date();
@@ -79,10 +117,8 @@ function hide_card(card_back, card_front) {
 				$(card_front).removeClass("flip_card_back");
 			
 				$(card_back).removeClass("flip_card");
-			
+			}, 400);
 
-				
-			}, 300);
 				incorrect += 1;
 			}
 				second_clicked = false;

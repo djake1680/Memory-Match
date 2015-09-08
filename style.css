@@ -1,6 +1,7 @@
 body {
 	background-image: url(images/darkknightbackground5.jpg);
-	background-size: 100%;
+	background-size: 100vw; /*changed from 100%; */
+    background-repeat: no-repeat;
 }
 
 .container {
@@ -54,6 +55,7 @@ body {
 .navbar {
 	width: 820px;
 	height: 120px;
+	margin: 0 auto;
 }
 
 .reset {
