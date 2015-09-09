@@ -29,33 +29,30 @@ $(document).ready(function(){
     for (var i = 0; i < total_cards; i++) {
         var card_pick = Math.floor((Math.random() * game_cards.length));
         console.log(game_cards[card_pick]);
+        var card_container = ".card_container" + i;
+        var game_piece = $("<div>", {
+            class: "card_container card_container" + i,
+        });
+
+        var game_front_image = $("<img>", {
+            class: "card-front",
+            id: "card" + i + "front",
+            src: game_cards[card_pick],
+        });
+
+        var game_back_image = $("<img>", {
+            class: "card-back",
+            src: "images/cardback.jpg",
+            id: "card" + i + "back",
+            onclick: "hide_card('#card" + i + "back', '#card" + i + "front')",
+        });
+        $(".gamearea").append(game_piece);
+        $(card_container).append(game_front_image);
+        $(card_container).append(game_back_image);
         game_cards.splice(card_pick, 1);
-        
     }
 
-
-	var game_piece = $("<div>", {
-		class: "card_container card_container1",
-		});
-
-	var game_image = $("<img>", {
-		class: "card-front",
-		id: "card1front",
-		src: "images/batmandk.jpg"
-	});
-
-    var game_front_image = $("<img>", {
-        class: "card-back",
-        src: "images/cardback.jpg",
-        id: "card1back",
-        onclick: "hide_card('#card1back', '#card1front')",
-    });
-
-    $(".gamearea").append(game_piece);
-    $(".card_container1").append(game_image);
-    $(".card_container1").append(game_front_image);
-
-});
+}); // end of document ready
 
 function start_game(){
 	if (interval != null) {
