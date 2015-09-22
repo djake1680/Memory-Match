@@ -32,6 +32,8 @@ $(document).ready(function(){
         var card_container = ".card_container" + i;
         var game_piece = $("<div>", {
             class: "card_container card_container" + i,
+            front: '#card' + i + 'front',
+            back: '#card' + i + 'back',
         });
 
         var game_front_image = $("<img>", {
@@ -51,6 +53,11 @@ $(document).ready(function(){
         $(card_container).append(game_back_image);
         game_cards.splice(card_pick, 1);
     }
+
+    $(".card_container").click(function(){
+        var front_card = $(this).attr("img");
+        console.log(this);
+    });
 
 }); // end of document ready
 
