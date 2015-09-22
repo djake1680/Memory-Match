@@ -46,7 +46,6 @@ $(document).ready(function(){
             class: "card-back",
             src: "images/cardback.jpg",
             id: "card" + i + "back",
-            //onclick: "hide_card('#card" + i + "back', '#card" + i + "front')",
         });
         $(".gamearea").append(game_piece);
         $(card_container).append(game_front_image);
@@ -82,66 +81,61 @@ function reset_game(){
 	timer_output.html(0);
 }
 
-function hide_card(card_back, card_front) { 
-            console.log(card_back, card_front);
-	 		$(card_back).addClass("flip_card");
-	 	
-			$(card_front).addClass("flip_card_back");
+function hide_card(card_back, card_front) {
+    console.log(card_back, card_front);
+    $(card_back).addClass("flip_card");
+    $(card_front).addClass("flip_card_back");
+    var front_image_src = $(card_front).attr('src'); //determines what card was clicked by looking at the variable that passed through the function
+    //console.log(front_image_src);
+    if (!second_clicked) { //if second_clicked hasn't been changed to true yet
 
-		//console.log($(card_back));
-		//console.log($(card_front));
-		var front_image_src = $(card_front).attr('src'); //determines what card was clicked by looking at the variable that passed through the function
-        console.log(front_image_src);
-		if (!second_clicked) { //if second_clicked hasn't been changed to true yet
-			
-			//console.log("First click"); 
-			second_clicked = true;
-			first_click = front_image_src;
-			card_front_hide = card_front;
-			card_back_show = card_back;
-			
+        //console.log("First click");
+        second_clicked = true;
+        first_click = front_image_src;
+        card_front_hide = card_front;
+        card_back_show = card_back;
 
-		}
 
-		else {
-			if (first_click == front_image_src) {
-				console.log("They're the same!");
-				$(card_front).hide(500);
-				$(card_front_hide).hide(500);
-				console.log("Your score is: " + (score += 1));
-				score_output.html(score);
-				correct += 1;
+    }
 
-			}
-			else {
-				setTimeout(function(){
-				console.log("Please try again!");
-				$(card_back_show).removeClass("flip_card");
-			
-				$(card_front_hide).removeClass("flip_card_back");
-				
-				$(card_front).removeClass("flip_card_back");
-			
-				$(card_back).removeClass("flip_card");
-			}, 400);
+    else {
+        if (first_click == front_image_src) {
+            console.log("They're the same!");
+            $(card_front).hide(500);
+            $(card_front_hide).hide(500);
+            console.log("Your score is: " + (score += 1));
+            score_output.html(score);
+            correct += 1;
 
-				incorrect += 1;
-			}
-				second_clicked = false;
-			var accurate_math = (correct / (incorrect + correct)) * 100;
-			var accuracy = accurate_math.toFixed(0);
-			accuracy_output.html(accuracy + "%");
+        }
+        else {
+            setTimeout(function () {
+                console.log("Please try again!");
+                $(card_back_show).removeClass("flip_card");
 
-		}
-		
+                $(card_front_hide).removeClass("flip_card_back");
 
-		if(score == 9) {
-					alert("YOU WON!");
-					clearInterval(interval);
-					timer_output.html(time_difference);
-					
-				}
-	
+                $(card_front).removeClass("flip_card_back");
 
-		
+                $(card_back).removeClass("flip_card");
+            }, 400);
+
+            incorrect += 1;
+        }
+        second_clicked = false;
+        var accurate_math = (correct / (incorrect + correct)) * 100;
+        var accuracy = accurate_math.toFixed(0);
+        accuracy_output.html(accuracy + "%");
+
+    }
+
+
+    if (score == 9) {
+        alert("YOU WON!");
+        clearInterval(interval);
+        timer_output.html(time_difference);
+
+    }
+
+
 }
