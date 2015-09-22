@@ -2,6 +2,7 @@ body {
 	background-image: url(images/darkknightbackground5.jpg);
 	background-size: 100vw; /*changed from 100%; */
     background-repeat: no-repeat;
+	background-color: black;
 }
 
 .container {
