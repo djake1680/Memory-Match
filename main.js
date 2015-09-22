@@ -22,13 +22,13 @@ $(document).ready(function(){
         "images/gordon.jpg", "images/jokerbk.jpg", "images/jokerbk.jpg", "images/alfred.jpg", "images/alfred.jpg",
         "images/scarecrow.jpg", "images/scarecrow.jpg", "images/twoface.jpg", "images/twoface.jpg", "images/fox.jpg",
         "images/fox.jpg", "images/harvey.jpg", "images/harvey.jpg"];
-    console.log(game_cards.length);
+    //console.log(game_cards.length);
 
     var total_cards = game_cards.length;
 
     for (var i = 0; i < total_cards; i++) {
         var card_pick = Math.floor((Math.random() * game_cards.length));
-        console.log(game_cards[card_pick]);
+        //console.log(game_cards[card_pick]);
         var card_container = ".card_container" + i;
         var game_piece = $("<div>", {
             class: "card_container card_container" + i,
@@ -46,7 +46,7 @@ $(document).ready(function(){
             class: "card-back",
             src: "images/cardback.jpg",
             id: "card" + i + "back",
-            onclick: "hide_card('#card" + i + "back', '#card" + i + "front')",
+            //onclick: "hide_card('#card" + i + "back', '#card" + i + "front')",
         });
         $(".gamearea").append(game_piece);
         $(card_container).append(game_front_image);
@@ -55,8 +55,10 @@ $(document).ready(function(){
     }
 
     $(".card_container").click(function(){
-        var front_card = $(this).attr("img");
-        console.log(this);
+        var front_card = $(this).attr("front");
+        var back_card = $(this).attr("back");
+        console.log(front_card, back_card);
+        hide_card(back_card, front_card);
     });
 
 }); // end of document ready
@@ -81,15 +83,15 @@ function reset_game(){
 }
 
 function hide_card(card_back, card_front) { 
-
+            console.log(card_back, card_front);
 	 		$(card_back).addClass("flip_card");
 	 	
 			$(card_front).addClass("flip_card_back");
 
-		console.log($(card_back));
-		console.log($(card_front));
+		//console.log($(card_back));
+		//console.log($(card_front));
 		var front_image_src = $(card_front).attr('src'); //determines what card was clicked by looking at the variable that passed through the function
-
+        console.log(front_image_src);
 		if (!second_clicked) { //if second_clicked hasn't been changed to true yet
 			
 			//console.log("First click"); 
