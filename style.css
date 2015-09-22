@@ -118,7 +118,7 @@ button:focus {
 
 @font-face {
 	font-family: scary;
-	src: url(images/somethingstrange.ttf);
+	src: url(fonts/somethingstrange.ttf);
 	font-weight: 400;
 }
 
