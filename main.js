@@ -24,7 +24,7 @@ $(document).ready(function(){
     accuracy_output.html("0%");
     score_output.html("0");
     timer_output.html("0");
-    //console.log(game_cards.length);
+
     create_gameboard();
 
     $(".gamearea").on("click", ".card_container", function(){
@@ -168,14 +168,17 @@ function hide_card(card_back, card_front) {
             reset_game();
         }
 
-        //clearInterval(interval);
-        //timer_output.html(time_difference);
-
+        clearInterval(interval);
+        timer_output.html(time_difference);
     }
 
-
 }
-
+/******
+ * function name: calculate_accuracy
+ * purpose: calculate accuracy and display it on the screen
+ * @param correct
+ * @param incorrect
+ */
 function calculate_accuracy(correct_match, incorrect_match)
 {
     var accurate_math = (correct_match / (incorrect_match + correct_match)) * 100;
