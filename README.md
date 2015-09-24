@@ -1,9 +1,3 @@
-
-3 things you learned
-1-3 screenshots of live application
-0-2 screenshots of the code
-Link to live preview
-
 <h1>Memory Match</h1> 
 
 ![Alt text](screenshots/memory_match1.png "Dark Knight Memory Match Game")
